@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
     // Objetos de binding com as Views
     private EditText nomeEt;
@@ -76,7 +78,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickButton(View view){
+        switch(view.getId()) {
+            case R.id.salvarBt:
+                saveForm();
+                break;
+            case R.id.limparBt:
+                cleanForm();
+                break;
+            default:
+                break;
+        }
+    }
 
+    private void cleanForm() {
+        nomeEt.setText("");
+        sobrenomeEt.setText("");
+        emailEt.setText("");
+        estadoCivilSp.setSelection(0);
+        masculinoRb.setChecked(true);
+    }
+
+    private void saveForm() {
+        StringBuffer sumarioSb = new StringBuffer();
+        sumarioSb.append("Nome completo: ").append(nomeCompleto).append("\n");
+        sumarioSb.append("E-mail: ").append(emailEt.getText().toString()).append("\n");
+
+        // Forma alternativa de lidar com o Spinner
+        int casadoIndex = Arrays.asList(getResources().getStringArray(R.array.estado_civil)).indexOf("Casado");
+        if (casadoIndex == estadoCivilSp.getSelectedItemPosition()) {
+            sumarioSb.append("Cônjuge: ")
+                    .append(nomeConjugeEt.getText().toString()).append(" ")
+                    .append(sobrenomeConjugeEt.getText().toString()).append("\n");
+        }
+
+        // Uma forma de lidar com RadioGroup
+        sumarioSb.append("Sexo: ");
+        switch (sexoRg.getCheckedRadioButtonId()) {
+            case R.id.masculinoRb:
+                sumarioSb.append("masculino");
+                break;
+            case R.id.femininoRb:
+                sumarioSb.append("feminino");
+                break;
+        }
+        sumarioSb.append("\n");
+
+        Toast.makeText(this, sumarioSb.toString(), Toast.LENGTH_SHORT).show();
     }
 
     private void bindViews() {
