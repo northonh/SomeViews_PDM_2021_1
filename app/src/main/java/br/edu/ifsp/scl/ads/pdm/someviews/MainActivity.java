@@ -3,6 +3,8 @@ package br.edu.ifsp.scl.ads.pdm.someviews;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -11,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     // Objetos de binding com as Views
@@ -23,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText sobrenomeConjugeEt;
     private RadioGroup sexoRg;
     private RadioButton masculinoRb;
+
+    private String nomeCompleto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        // Watcher para nome completo (só para teste mesmo, funcionalidade zero)
+        sobrenomeEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                nomeCompleto = nomeEt.getText().toString() + " " + s;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
             }
         });
     }
