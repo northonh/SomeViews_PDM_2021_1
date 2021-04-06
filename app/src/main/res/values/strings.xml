@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SomeViews</string>
+    <string-array name="estado_civil">
+        <item>Solteiro</item>
+        <item>Casado</item>
+        <item>Divorciado</item>
+        <item>Viúvo</item>
+    </string-array>
 </resources>

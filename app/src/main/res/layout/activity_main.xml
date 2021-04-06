@@ -1,18 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Preencha os dados"
+        android:textSize="25sp"
+        android:gravity="center_horizontal" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/nomeEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:id="@+id/sobrenomeEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sobrenome"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:id="@+id/emailEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:padding="5dp"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado civil"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:labelFor="@id/estadoCivilSp"/>
+
+    <Spinner
+        android:id="@+id/estadoCivilSp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/estado_civil"
+        android:padding="5dp"
+        android:layout_margin="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/conjugeLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <EditText
+            android:id="@+id/nomeConjugeEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome do cônjuge"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/sobrenomeConjugeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sobrenome do cônjuge"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sexo"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:labelFor="@id/sexoRg"/>
+
+    <RadioGroup
+        android:id="@+id/sexoRg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+        <RadioButton
+            android:id="@+id/masculinoRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masculino"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/femininoRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feminino"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/salvarBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:padding="5dp"
+        android:layout_margin="5dp" />
+
+    <Button
+        android:id="@+id/limparBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Limpar"
+        android:padding="5dp"
+        android:layout_margin="5dp" />
+
+</LinearLayout>
