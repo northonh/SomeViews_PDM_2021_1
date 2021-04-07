@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         sumarioSb.append("Nome completo: ").append(nomeCompleto).append("\n");
         sumarioSb.append("E-mail: ").append(emailEt.getText().toString()).append("\n");
 
+        sumarioSb.append("Estado civil: ").append(((TextView) estadoCivilSp.getSelectedView()).getText()).append("\n");
         // Forma alternativa de lidar com o Spinner
         int casadoIndex = Arrays.asList(getResources().getStringArray(R.array.estado_civil)).indexOf("Casado");
         if (casadoIndex == estadoCivilSp.getSelectedItemPosition()) {
